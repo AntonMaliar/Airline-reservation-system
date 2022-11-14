@@ -2,6 +2,7 @@ package anton.maliar.AirlineReservationSystem.authentication;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,4 +16,9 @@ public class Authentication {
 //        }
         return "login-registration";
     }
+    @PostMapping("/new-user")
+    public String createNewUser(HttpServletRequest request){
+        return "user-account";
+    }
+
 }

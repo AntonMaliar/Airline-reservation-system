@@ -13,13 +13,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthenticationTest {
     private HttpClient client;
+    private HttpRequest request;
     private HttpResponse<String> response;
 
     @Test
     public void welcomePageTest() {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
+        client = HttpClient.newHttpClient();
+        request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080"))
+                .build();
+
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            assertEquals(200 , response.statusCode());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void createNewUserTest(){
+        client = HttpClient.newHttpClient();
+        request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/new-user"))
+                .POST(HttpRequest.BodyPublishers.noBody())
                 .build();
 
         try {
