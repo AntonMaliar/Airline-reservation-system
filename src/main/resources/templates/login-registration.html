@@ -5,6 +5,32 @@
     <title>login-registration</title>
 </head>
 <body>
-hello
+    <h1>Create new user</h1>
+    <form action="/new-user" method="post">
+        <label for="name">Input name:</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="surname">Input surname:</label>
+        <input type="text" name="name" id="surname">
+        <br>
+        <label for="password">Input password:</label>
+        <input type="text" name="name" id="password">
+        <br>
+        <input type="submit" value="create">
+    </form>
+    <hr>
+    <h1>Log in</h1>
+    <form action="/login" method="post">
+        <label for="name">Input name:</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="surname">Input surname:</label>
+        <input type="text" name="name" id="surname">
+        <br>
+        <label for="password">Input password:</label>
+        <input type="text" name="name" id="password">
+        <br>
+        <input type="submit" value="log-in">
+    </form>
 </body>
 </html>
