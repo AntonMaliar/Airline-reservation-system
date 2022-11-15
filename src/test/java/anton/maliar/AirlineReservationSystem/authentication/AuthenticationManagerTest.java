@@ -32,7 +32,7 @@ public class AuthenticationManagerTest {
         }
     }
     @Test
-    public void isSessionValidTestException(){
+    public void ifManagerDontHaveSession(){
         HttpSession session = Mockito.mock(HttpSession.class);
         HttpSession session1 = Mockito.mock(HttpSession.class);
         when(session.getId()).thenReturn("1");
@@ -40,7 +40,6 @@ public class AuthenticationManagerTest {
 
         manager.addSession(session);
 
-        Exception exception = assertThrows(Exception.class, () -> manager.isSessionValid(session1));
-        assertEquals("Session not found", exception.getMessage());
+        assertFalse(manager.isSessionValid(session1));
     }
 }
