@@ -14,13 +14,14 @@ public class AuthenticationManager {
     public AuthenticationManager(){
         allSessions = new ArrayList<>();
     }
-    public boolean isSessionValid(HttpSession session) throws Exception{
+
+    public boolean isSessionValid(HttpSession session){
         for(int i = 0; i < allSessions.size(); i++){
             if(allSessions.get(i).getId().equals(session.getId())){
                 return true;
             }
         }
-        throw new Exception("Session not found");
+        return false;
     }
 
     public boolean addSession(HttpSession session){
