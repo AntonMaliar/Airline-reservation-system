@@ -65,4 +65,20 @@ public class AuthenticationTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void logoutTest(){
+        client = HttpClient.newHttpClient();
+        request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080/logout"))
+                .build();
+
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            assertEquals(200 , response.statusCode());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

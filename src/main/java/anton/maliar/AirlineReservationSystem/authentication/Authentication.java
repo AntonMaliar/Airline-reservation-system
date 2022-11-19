@@ -1,5 +1,6 @@
 package anton.maliar.AirlineReservationSystem.authentication;
 
+import anton.maliar.AirlineReservationSystem.repository.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ public class Authentication {
 
     private HttpSession session;
 
+
     @GetMapping("/")
     public String welcomePage(HttpServletRequest request) {
         //when we visit the site and the session is valid for the user, we redirect him to his page
@@ -27,6 +29,7 @@ public class Authentication {
 
     @PostMapping("/new-user")
     public String createNewUser(HttpServletRequest request){
+        //logic to save the user
         return "user-account";
     }
 
