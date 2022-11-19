@@ -1,4 +1,4 @@
-package anton.maliar.AirlineReservationSystem.authentication;
+package anton.maliar.AirlineReservationSystem.controllers;
 
 import anton.maliar.AirlineReservationSystem.repository.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class Authentication {
     private HttpSession session;
-    private UserDao dao;
-
-    @Autowired
-    public Authentication(UserDao dao){
-        this.dao = dao;
-    }
 
     @GetMapping("/")
     public String welcomePage(HttpServletRequest request) {
@@ -27,12 +21,6 @@ public class Authentication {
             return "user-account";
         }
         return "login-registration";
-    }
-
-    @PostMapping("/new-user")
-    public String createNewUser(HttpServletRequest request){
-        dao.saveUser(request);
-        return "user-account";
     }
 
     @PostMapping("/login")
