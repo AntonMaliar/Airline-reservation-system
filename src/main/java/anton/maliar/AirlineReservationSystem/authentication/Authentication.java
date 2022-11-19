@@ -2,21 +2,23 @@ package anton.maliar.AirlineReservationSystem.authentication;
 
 import anton.maliar.AirlineReservationSystem.repository.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class Authentication {
-
     private HttpSession session;
+    private UserDao dao;
 
+    @Autowired
+    public Authentication(UserDao dao){
+        this.dao = dao;
+    }
 
     @GetMapping("/")
     public String welcomePage(HttpServletRequest request) {
@@ -29,7 +31,7 @@ public class Authentication {
 
     @PostMapping("/new-user")
     public String createNewUser(HttpServletRequest request){
-        //logic to save the user
+        dao.saveUser(request);
         return "user-account";
     }
 
