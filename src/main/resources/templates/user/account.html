@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<h1 th:text="${user.getName()+' '+user.getSurname()}"></h1>
+<a href="/user/update">Change information about me</a>
+<br>
+<a href="/flight/find">Find flight</a>
+<br>
+<a href="/user/logout">Log out</a>
+<hr>
+<h1>Tickets</h1>
+    <div th:each="ticket : ${user.getTickets()}">
+        <span th:text="${'From: '+ticket.getFlight().getFrom()}"></span>
+        <span th:text="${'To: '+ticket.getFlight().getTo()}"></span>
+        <span th:text="${'Plane: '+ticket.getFlight().getPlane()}"></span>
+        <span th:text="${'Date: '+ticket.getFlight().getDate()}"></span>
+        <span th:text="${'Time: '+ticket.getFlight().getTime()}"></span>
+        <span th:text="${'Place: '+ticket.getPlace()}"></span>
+        <a th:href="@{/ticket/cancel(ticketId=${ticket.getId()})}">cancel reservation</a>
+    </div>
+</body>
+</html>

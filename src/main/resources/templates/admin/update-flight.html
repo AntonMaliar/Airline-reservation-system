@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Flight</title>
+</head>
+<body>
+<h2 align="right"><a href="admin-account">Admin account</a></h2>
+<h1>Update flight</h1>
+<form action="/admin/update-flight" method="post">
+    <label for="from">From</label>
+    <input id="from" name="from" th:value="${flight.getFrom()}">
+
+    <label for="to">To</label>
+    <input id="to" name="to" th:value="${flight.getTo()}">
+
+    <label for="plane">Plane</label>
+    <input id="plane" name="plane" th:value="${flight.getPlane()}">
+
+    <label for="number_seats">Number Seats</label>
+    <input id="number_seats" name="number_seats" th:value="${flight.getNumberSeats()}">
+
+    <label for="date">Date (yyyy-mm-dd)</label>
+    <input id="date" name="date" th:value="${flight.getDate()}">
+
+    <label for="time">Time(hh:mm)</label>
+    <input id="time" name="time" th:value="${flight.getTime()}">
+
+    <input type="submit" value="update">
+</form>
+</body>
+</html>

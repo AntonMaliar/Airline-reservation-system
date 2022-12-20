@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Account</title>
+</head>
+<body>
+    <h2 align="right"><a href="/admin/logout">Log out</a></h2>
+    <h1 th:text="${errorMessage}"></h1>
+    <h1>Add flight</h1>
+    <form action="/admin/add-flight" method="post">
+        <label for="from">From</label>
+        <input id="from" name="from">
+
+        <label for="to">To</label>
+        <input id="to" name="to">
+
+        <label for="plane">Plane</label>
+        <input id="plane" name="plane">
+
+        <label for="number_seats">Number Seats</label>
+        <input id="number_seats" name="number_seats">
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time">
+
+        <input type="submit" value="add">
+    </form>
+    <hr>
+    <h1>Find flight</h1>
+    <form action="/admin/find-flight">
+        <label for="from">Enter the place of departure</label>
+        <input name="from" id="from">
+
+        <label for="to">Enter your destination</label>
+        <input name="to" id="to">
+
+        <label for="date">Enter date</label>
+        <input type="date" name="date" id="date">
+
+        <input type="submit" value="find">
+    </form>
+</body>
+</html>

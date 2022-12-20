@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>login-registration</title>
+    <title>Login Registration</title>
 </head>
 <body>
     <h1>Airline Reservation System</h1>
+    <h2 th:text="${errorMessage}"></h2>
     <hr>
     <h1>Create new user</h1>
-    <form action="/new-user" method="post">
+    <form action="/user/new" method="post">
         <label for="name">Input name:</label>
         <input type="text" name="name" id="name">
         <br>
         <label for="surname">Input surname:</label>
-        <input type="text" name="name" id="surname">
+        <input type="text" name="surname" id="surname">
         <br>
         <label for="password">Input password:</label>
-        <input type="text" name="name" id="password">
+        <input type="text" name="password" id="password">
         <br>
         <input type="submit" value="create">
     </form>
     <hr>
     <h1>Log in</h1>
-    <form action="/login" method="post">
+    <form action="/user/login" method="post">
         <label for="name">Input name:</label>
         <input type="text" name="name" id="name">
         <br>
         <label for="surname">Input surname:</label>
-        <input type="text" name="name" id="surname">
+        <input type="text" name="surname" id="surname">
         <br>
         <label for="password">Input password:</label>
-        <input type="text" name="name" id="password">
+        <input type="text" name="password" id="password">
         <br>
         <input type="submit" value="log-in">
     </form>

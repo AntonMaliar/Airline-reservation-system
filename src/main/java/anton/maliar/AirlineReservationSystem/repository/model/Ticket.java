@@ -7,17 +7,16 @@ import java.util.Date;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "from")
-    private String from;
-    @Column(name = "to")
-    private String to;
-    @Column(name = "date")
-    private Date date;
+    private int place;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "flight_id")
+    private Flight flight;
 
     public Long getId() {
         return id;
@@ -27,28 +26,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public String getFrom() {
-        return from;
+    public int getPlace() {
+        return place;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPlace(int place) {
+        this.place = place;
     }
 
     public User getUser() {
@@ -59,6 +42,19 @@ public class Ticket {
         this.user = user;
     }
 
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
     public Ticket() {
+    }
+    public Ticket(Flight flight, User user, int place){
+        this.flight = flight;
+        this.user = user;
+        this.place = place;
     }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight</title>
+    <style>
+    .list {
+        column-count: 10;
+    }
+    </style>
+</head>
+<h2 align="right"><a href="/user/account">My Account</a></h2>
+<body>
+    <p th:text="${'From: '+flight.getFrom()}">from</p>
+    <p th:text="${'To: '+flight.getTo()}">to</p>
+    <p th:text="${'Plane: '+flight.getPlane()}">plane</p>
+    <p th:text="${'Date: '+flight.getDate()}">date</p>
+    <p th:text="${'Time: '+flight.getTime()}">time</p>
+    <hr>
+    <h1>Free seats</h1>
+    <ul class="list">
+        <li th:each="number : ${freeSeats}">
+            <a th:href="@{/ticket/reserve(flightId=${flight.getId()},place=${number})}" th:text="${number}"></a>
+        </li>
+    </ul>
+</body>
+</html>

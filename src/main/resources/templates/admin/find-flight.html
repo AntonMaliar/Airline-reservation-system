@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find flight</title>
+    <style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h2 align="right"><a href="admin-account">Admin account</a></h2>
+<table>
+    <tr><th>From</th><th>To</th><th>Plane</th><th>Number Seats</th><th>Date</th><th>Time</th></tr>
+    <div th:each="flight : ${flights}">
+        <tr>
+            <td th:text="${flight.getFrom()}"></td>
+            <td th:text="${flight.getTo()}"></td>
+            <td th:text="${flight.getPlane()}"></td>
+            <td th:text="${flight.getNumberSeats()}"></td>
+            <td th:text="${flight.getDate()}"></td>
+            <td th:text="${flight.getTime()}"></td>
+            <td><a th:href="@{/admin/update-flight(flightId=${flight.getId()})}" th:text="Update"></a></td>
+            <td><a th:href="@{/admin/delete-flight(flightId=${flight.getId()})}" th:text="Delete"></a></td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>

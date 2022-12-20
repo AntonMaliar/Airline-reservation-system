@@ -2,6 +2,7 @@ package anton.maliar.AirlineReservationSystem.repository.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -9,13 +10,9 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "name")
     private String name;
-    @Column(name = "surname")
     private String surname;
-    @Column(name = "password")
     private String password;
     @OneToMany(mappedBy = "user")
     private List<Ticket> tickets;
@@ -61,5 +58,11 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(String name, String surname, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
     }
 }
