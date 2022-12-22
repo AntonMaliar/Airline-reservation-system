@@ -1,4 +1,4 @@
-The airline reservations system is a web application that aims to automate the ticket booking system of airlines.
+The airline reservation system is a web application that aims to automate the ticket booking system of airlines.
 ***
 This system has four modules:
 1. admin. This module implements the logic of authentication, as well as the logic of interaction with flights (adding, changing, finding, deleting).
